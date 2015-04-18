@@ -12,8 +12,8 @@ var bio = {
 		},
 	"welcomessage" : "This is my resume, there are many like it but this is my own",
 	"skills" : ["programming", "animation", "buoyancy control"],
-	//"biopic" : "url"
-	"biopic" : "https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-xfa1/v/t1.0-9/10352909_10100423994039699_2550655943928779194_n.jpg?oh=fc0800b56955b4a19ed0482ad4330eb1&oe=55DA8B9C&__gda__=1436775281_9d889574fa01332ab6a15ff6569a6f77"
+	"biopic" : "https://scontent-atl.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/1001473_997889150339_776701461_n.jpg?oh=430b789b598948e8a255943a4c7914d3&oe=55DF95D3"
+	
 	}
 
 bio.display = function(){
@@ -40,7 +40,11 @@ bio.display = function(){
 	$("#header").append(formattedWelcome);
 
 	// skills
-
+	$("#header").append(HTMLskillsStart);		
+	for (skill in bio.skills){
+		var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
+		$("#skills").append(formattedSkill);
+	}
 
 }
 
