@@ -200,11 +200,31 @@ var projects = [
 		"description" : "Procedural electricity, large FLIP simulation and volumetric smoke sims",
 		"images": []
 	}
-
 ]
 
 projects.display = function(){
-	console.log("display function projects");
+	for (project in projects){
+		var entry = projects[project];
+		if (typeof entry.title != "undefined"){
+
+			$("#projects").append(HTMLprojectStart);
+			
+			var formattedTitle = HTMLprojectTitle.replace("%data%", entry.title);
+			var formattedDates = HTMLprojectDates.replace("%data%", entry.dates);
+			var formattedDescription = HTMLprojectDescription.replace("%data%", entry.description);
+			
+			$(".project-entry:last").append(formattedTitle);
+			$(".project-entry:last").append(formattedDates);
+			$(".project-entry:last").append(formattedDescription);
+
+			/*
+			for (image in entry.images){
+				var formattedImage = HTMLprojectImage.replace("%data%", entry.images[image]);	
+			}
+			*/
+		}
+
+	}
 }
 
 projects.display();
