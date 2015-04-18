@@ -149,8 +149,25 @@ var work = {
 }
 
 work.display = function(){
-	console.log("display education function")	
+	for (job in work.jobs){
+		$("#workExperience").append(HTMLworkStart);
+		var entry = work.jobs[job];
+		var formattedEmployer = HTMLworkEmployer.replace("%data%", entry.employer);
+		var formattedTitle = HTMLworkTitle.replace("%data%", entry.title);
+		var formattedLocation = HTMLworkLocation.replace("%data%", entry.location);
+		var formattedDates = HTMLworkDates.replace("%data%", entry.dates);
+		var formattedDescription = HTMLworkDescription.replace("%data%", entry.description);
+
+		$(".work-entry:last").append(formattedEmployer);
+		$(".work-entry:last").append(formattedTitle);
+		$(".work-entry:last").append(formattedLocation);
+		$(".work-entry:last").append(formattedDates);
+		$(".work-entry:last").append(formattedDescription);
+	}
 }
+
+work.display();
+
 
 var projects = [
 	{
@@ -189,3 +206,5 @@ var projects = [
 projects.display = function(){
 	console.log("display function projects");
 }
+
+projects.display();
