@@ -29,6 +29,7 @@ bio.display = function(){
 		var formattedContact = HTMLcontactGeneric.replace("%contact%", contact);
 		formattedContact = formattedContact.replace("%data%", bio.contacts[contact]);
 		$("#topContacts").append(formattedContact);
+		$("#footerContacts").append(formattedContact);
 	}
 
 	// bio pic
@@ -45,10 +46,7 @@ bio.display = function(){
 		var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
 		$("#skills").append(formattedSkill);
 	}
-
 }
-
-bio.display();
 
 
 var education = {
@@ -77,8 +75,8 @@ var education = {
 
 education.display = function(){
 	// undergrad
-	$("#education").append(HTMLschoolStart);
 	for (school in education.schools){
+		$("#education").append(HTMLschoolStart);
 		var entry = education.schools[school];
 		var formattedSchoolName = HTMLschoolName.replace("%data%", entry.name);
 		var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", entry.location);
@@ -95,9 +93,8 @@ education.display = function(){
 
 	// online classes
 	$("#education").append(HTMLonlineClasses);
-	$("#education").append(HTMLschoolStart);
-
 	for (onlineCourse in education["online courses"]){
+		$("#education").append(HTMLschoolStart);
 		var entry = education["online courses"][onlineCourse];
 		var formattedTitle = HTMLonlineTitle.replace("%data%", entry.title);
 		var formattedSchool = HTMLonlineSchool.replace("%data%", entry.school);
@@ -110,8 +107,6 @@ education.display = function(){
 		$(".education-entry:last").append(formattedUrl);
 	}
 }	
-
-education.display();
 
 
 var work = {
@@ -166,8 +161,6 @@ work.display = function(){
 	}
 }
 
-work.display();
-
 
 var projects = [
 	{
@@ -217,14 +210,15 @@ projects.display = function(){
 			$(".project-entry:last").append(formattedDates);
 			$(".project-entry:last").append(formattedDescription);
 
-			/*
 			for (image in entry.images){
 				var formattedImage = HTMLprojectImage.replace("%data%", entry.images[image]);	
 			}
-			*/
 		}
-
 	}
 }
 
+// execute the display functions
+bio.display();
+education.display();
+work.display();
 projects.display();
