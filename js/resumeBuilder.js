@@ -2,7 +2,7 @@
 
 var bio = {
 	"name" : "Alex Moaveni",
-	"role" : "Computer Graphics",
+	"role" : "Computer Graphics Guru",
 	"contacts" : {
 		"mobile" : "310 733 0474",
 		"email" : "almoav@gmail.com",
@@ -153,8 +153,8 @@ work.display = function(){
 		var formattedDates = HTMLworkDates.replace("%data%", entry.dates);
 		var formattedDescription = HTMLworkDescription.replace("%data%", entry.description);
 
-		$(".work-entry:last").append(formattedEmployer);
-		$(".work-entry:last").append(formattedTitle);
+		$(".work-entry:last").append(formattedEmployer + formattedTitle);
+		//$(".work-entry:last").append(formattedTitle);
 		$(".work-entry:last").append(formattedLocation);
 		$(".work-entry:last").append(formattedDates);
 		$(".work-entry:last").append(formattedDescription);
@@ -222,3 +222,5 @@ bio.display();
 education.display();
 work.display();
 projects.display();
+
+$("#mapDiv").append('<div id="map"></div>');
